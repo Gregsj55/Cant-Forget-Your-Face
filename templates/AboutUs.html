@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+    <link rel="icon" href="static/favicon.ico" type="image/x-icon" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+  input[type=submit] {
+  padding: 0 18px;
+  height: 29px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #527881;
+  text-shadow: 0 1px #e3f1f1;
+  background: #cde5ef;
+  border: 1px solid;
+  border-color: #b4ccce #b3c0c8 #9eb9c2;
+  border-radius: 16px;
+  outline: 0;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  background-image: -webkit-linear-gradient(top, #edf5f8, #cde5ef);
+  background-image: -moz-linear-gradient(top, #edf5f8, #cde5ef);
+  background-image: -o-linear-gradient(top, #edf5f8, #cde5ef);
+  background-image: linear-gradient(to bottom, #edf5f8, #cde5ef);
+  -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+input[type=submit]:active {
+  background: #cde5ef;
+  border-color: #9eb9c2 #b3c0c8 #b4ccce;
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+  </style>
+</head>
+<body style = "background-color: #007cc7;">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">
+        <img src="../static/CFYF Logo.png" alt="LOGO" height="32px" width="32px" style="border-radius: 50%">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li class="active"><a href="AboutUs.html">About Us</a></li>
+        <li><a href="createAcc.html">Create Account</a></li>
+          <li><a href="FAQ.html">FAQ's</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" style = "padding: 7px;">
+        <form action="{{ url_for('loginFirst') }}" method="post">
+          <input type = "submit" value = "Login" class = "button">
+        </form>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container text-center">    
+  <h3 style = "color:white">About Us</h3><br>
+  <div class="row">
+      <div class="col-sm-6">
+        <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s;background-color: white;">
+            <img class="card-img-top" width="200" height="200" style = "padding-top: 1%;" src="/static/greg-test.jpg">
+            <div class="card-body" style="padding: 2px 16px;">
+                <h5 class="card-title">Gregory James</h5>
+                <p class="card-text">Greg is a second year in Computer Science major at CU Boulder. Greg also likes to do other things rather than Computer Science like having a good day.</p>
+                <a href="https://www.linkedin.com/in/gregory-james-b5685b202/" class="btn btn-primary">LinkedIn</a>
+            </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s;background-color: white;">
+            <img class="card-img-top" width="200" height="200" style = "padding-top: 1%;" src="/static/oprah.jpeg">
+            <div class="card-body" style="padding: 2px 16px;">
+                <h5 class="card-title">Micheal Yon</h5>
+                <p class="card-text">Micheal is a second year in Computer Science major at CU Boulder. Micheal likes to play music and ride his bike.</p>
+                <a href="https://www.linkedin.com/in/michael-yon-4350561b6/" class="btn btn-primary">LinkedIn</a>
+            </div>
+        </div>
+      </div>
+</div><br>
+<div class="row">
+    <div class="col-sm-6">
+      <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s; background-color: white;">
+          <img class="card-img-top" width="45%" height="45%" style = "padding-top: 1%;" src="/static/TylerPic.JPG">
+          <div class="card-body" style="padding: 2px 16px;">
+              <h5 class="card-title">Tyler Curnow</h5>
+              <p class="card-text">Tyler is a second year Computer Scince major at CU Boulder. Tyler is very passionate about space and is a member of the CU Boulder Call of Duty team.</p>
+              <a href="https://www.linkedin.com/in/tyler-curnow-0920681b5" class="btn btn-primary">LinkedIn</a>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s;background-color: white;">
+          <img class="card-img-top" width="200" height="200" style = "padding-top: 1%;" src="/static/matt-test.jpg">
+          <div class="card-body" style="padding: 2px 16px;">
+              <h5 class="card-title">Matthew Ceriello</h5>
+              <p class="card-text">Matthew is senior Computer Science major at CU Boulder. In his free time he likes to snowboard.</p>
+              <a href="https://www.linkedin.com/in/matt-ceriello-ba0390222/" class="btn btn-primary">LinkedIn</a>
+          </div>
+      </div>
+    </div>
+</div><br>
+
+<footer class="container-fluid text-center" style = "color:white; background-color: #007cc7;">
+  <table class = "table">
+      <tr>
+          <td style = "width:50%">
+              <p style = "text-align: left;">Can't  Forget Your Face</p>
+          </td>
+          <td style = "width:50%">
+              <p style = "text-align: right;">Contact us at: CFYF@CFYF.com</p>
+          </td>
+      </tr>
+  </table>
+</footer>
+
+</body>
+</html>

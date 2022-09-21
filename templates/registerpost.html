@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Face Recog</title>
+</head>
+<body>
+<h1>Facial Recognition</h1>
+<h2>Please enter Username and Password</h2>
+
+
+<form action="{{ url_for('register_post') }}" method="post">
+    <label for="username"><b>Username</b></label>
+    <input id="username" name="username" placeholder="Enter Username" type="text">
+    <label for="password"><b>Password</b></label>
+    <input id="password" name="password" placeholder="Enter Password" type="text">
+    <input type="submit" id="submitButton" value="Submit">
+</form>
+
+
+
+<!--
+<img src="{{ url_for('video_feed') }}">
+-->
+</body>
+</html>

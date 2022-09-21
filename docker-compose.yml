@@ -1,0 +1,35 @@
+version: '3'
+services:
+    app:
+        build: .
+        ports:
+            - "5000:5000"
+        volumes:
+            - .:/code
+        depends_on:
+            - db
+        environment:
+            SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://postgres:pwd@db/my_db
+
+        networks:
+            - flaskapp
+
+    #redis:
+    #    image: redis
+    db:
+        image: postgres
+
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: pwd
+            POSTGRES_DB: my_db
+        ports:
+        - "5432:5432"                                  # We need only expose port `5432` internally to node (not the host)
+        volumes:
+        - ./SQL/init_data:/docker-entrypoint-initdb.d # Binds ./init_data to docker-entrypoint-initdb.d.
+        networks:
+            - flaskapp                    #   The postgres image will run any files in this directory on startup,
+                                                    #   in our case the file `init_data/create.sql`
+networks:
+    flaskapp:
+        driver: bridge

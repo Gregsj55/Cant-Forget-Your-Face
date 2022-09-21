@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="static/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.tiny.cloud/1/blq83nj4kbwdckp7e4adze5q2x8u4bjlkcjgdv0r7cijo1oo/tinymce/5/tinymce.min.js"referrerpolicy="orgin" ></script>
+  <style>
+    input[type=submit] {
+  padding: 0 18px;
+  height: 29px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #527881;
+  text-shadow: 0 1px #e3f1f1;
+  background: #cde5ef;
+  border: 1px solid;
+  border-color: #b4ccce #b3c0c8 #9eb9c2;
+  border-radius: 16px;
+  outline: 0;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  background-image: -webkit-linear-gradient(top, #edf5f8, #cde5ef);
+  background-image: -moz-linear-gradient(top, #edf5f8, #cde5ef);
+  background-image: -o-linear-gradient(top, #edf5f8, #cde5ef);
+  background-image: linear-gradient(to bottom, #edf5f8, #cde5ef);
+  -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+input[type=submit]:active {
+  background: #cde5ef;
+  border-color: #9eb9c2 #b3c0c8 #b4ccce;
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+  </style>
+</head>
+<body style = "background-color: #007cc7;">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">
+        <img src="/static/CFYF Logo.png" alt="LOGO" height="32px" width="32px">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="AboutUs.html">About Us</a></li>
+        <!-- <li><a href="createAcc.html">Account Settings</a></li> -->
+      </ul>
+      <ul class="nav navbar-nav navbar-right" style = "padding: 7px;">
+        <form action="{{ url_for('logout') }}" method="post">
+          <input type = "submit" value = "Logout" class = "button">
+        </form>
+        <!-- <li><a href="index.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div style = "height: 95%; width:95%; text-align: center; padding: 10px;">
+<form id = textA name = textA action="{{ url_for('save') }}" method="post" >
+<textarea id = "classic" name = "classic" style = "height:fit-content">
+  {{text}}
+</textarea>
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    toolbar_mode: 'floating',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
+    height: '500',
+    referer: "file:///Users/gregjames/Desktop/GitClones/CSCI-3308-Fall21-011-08/FrontEnd/textEdit.html"
+ });
+</script>
+<input type = "submit" id = "subButt" value = "save">
+</form>
+<!-- <form><button name = "cancelbtn">Revert to last save</button></form> -->
+</div>
+
+
+<footer class="container-fluid text-center" style = "color:white">
+    <table class = "table">
+        <tr>
+            <td style = "width:50%">
+                <p style = "text-align: left;">Can't  Forget Your Face</p>
+            </td>
+            <td style = "width:50%">
+                <p style = "text-align: right;">Contact us at: CFYF@CFYF.com</p>
+            </td>
+        </tr>
+    </table>
+</footer>
+
+</body>
+</html>
